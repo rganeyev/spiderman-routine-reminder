@@ -13,7 +13,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { Checkbox } from "@/components/ui/checkbox";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
-import { playPowSound } from "@/lib/soundEffects";
+import { playPowSound, playTwinkleSound } from "@/lib/soundEffects";
 import { loadCheckedTasks, saveCheckedTasks } from "@/lib/storage";
 
 interface RoutineSectionProps {
@@ -87,8 +87,12 @@ export default function RoutineSection({ title, icon, tasks, accentColor, defaul
       newChecked.delete(index);
     } else {
       newChecked.add(index);
-      // Play POW! sound when checking a task
-      playPowSound();
+      // Play sound when checking a task - POW for Emin, twinkle for Samira
+      if (kidId === 'samira') {
+        playTwinkleSound();
+      } else {
+        playPowSound();
+      }
     }
     setCheckedTasks(newChecked);
     // Save to localStorage
