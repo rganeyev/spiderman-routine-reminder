@@ -27,29 +27,53 @@ interface RoutineSectionProps {
 
 const colorClasses = {
   red: {
-    bg: "bg-[oklch(0.55_0.22_27)]",
-    text: "text-white",
-    border: "border-[oklch(0.55_0.22_27)]",
-    checkBg: "data-[state=checked]:bg-[oklch(0.55_0.22_27)]",
+    emin: {
+      bg: "bg-[oklch(0.55_0.22_27)]",
+      text: "text-white",
+      border: "border-[oklch(0.55_0.22_27)]",
+      checkBg: "data-[state=checked]:bg-[oklch(0.55_0.22_27)]",
+    },
+    samira: {
+      bg: "bg-gradient-to-br from-pink-400 to-blue-400",
+      text: "text-white",
+      border: "border-pink-400",
+      checkBg: "data-[state=checked]:bg-pink-400",
+    },
   },
   blue: {
-    bg: "bg-[oklch(0.45_0.15_265)]",
-    text: "text-white",
-    border: "border-[oklch(0.45_0.15_265)]",
-    checkBg: "data-[state=checked]:bg-[oklch(0.45_0.15_265)]",
+    emin: {
+      bg: "bg-[oklch(0.45_0.15_265)]",
+      text: "text-white",
+      border: "border-[oklch(0.45_0.15_265)]",
+      checkBg: "data-[state=checked]:bg-[oklch(0.45_0.15_265)]",
+    },
+    samira: {
+      bg: "bg-gradient-to-br from-orange-400 via-pink-400 to-purple-500",
+      text: "text-white",
+      border: "border-orange-400",
+      checkBg: "data-[state=checked]:bg-orange-400",
+    },
   },
   yellow: {
-    bg: "bg-[oklch(0.85_0.15_95)]",
-    text: "text-[oklch(0.2_0.015_65)]",
-    border: "border-[oklch(0.85_0.15_95)]",
-    checkBg: "data-[state=checked]:bg-[oklch(0.85_0.15_95)]",
+    emin: {
+      bg: "bg-[oklch(0.85_0.15_95)]",
+      text: "text-[oklch(0.2_0.015_65)]",
+      border: "border-[oklch(0.85_0.15_95)]",
+      checkBg: "data-[state=checked]:bg-[oklch(0.85_0.15_95)]",
+    },
+    samira: {
+      bg: "bg-gradient-to-br from-pink-400 to-purple-500",
+      text: "text-white",
+      border: "border-pink-400",
+      checkBg: "data-[state=checked]:bg-pink-400",
+    },
   },
 };
 
 export default function RoutineSection({ title, icon, tasks, accentColor, defaultOpen = false, kidId }: RoutineSectionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const [checkedTasks, setCheckedTasks] = useState<Set<number>>(new Set());
-  const colors = colorClasses[accentColor];
+  const colors = colorClasses[accentColor][kidId];
 
   // Load checked tasks from localStorage on mount
   useEffect(() => {
