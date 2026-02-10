@@ -28,10 +28,10 @@ interface RoutineSectionProps {
 const colorClasses = {
   red: {
     emin: {
-      bg: "bg-[oklch(0.55_0.22_27)]",
+      bg: "bg-[#E23636]",
       text: "text-white",
-      border: "border-[oklch(0.55_0.22_27)]",
-      checkBg: "data-[state=checked]:bg-[oklch(0.55_0.22_27)]",
+      border: "border-[#E23636]",
+      checkBg: "data-[state=checked]:bg-[#E23636]",
     },
     samira: {
       bg: "bg-gradient-to-br from-blue-300 via-cyan-200 to-blue-100",
@@ -42,10 +42,10 @@ const colorClasses = {
   },
   blue: {
     emin: {
-      bg: "bg-[oklch(0.45_0.15_265)]",
+      bg: "bg-[#0D47A1]",
       text: "text-white",
-      border: "border-[oklch(0.45_0.15_265)]",
-      checkBg: "data-[state=checked]:bg-[oklch(0.45_0.15_265)]",
+      border: "border-[#0D47A1]",
+      checkBg: "data-[state=checked]:bg-[#0D47A1]",
     },
     samira: {
       bg: "bg-gradient-to-br from-orange-400 via-pink-400 to-purple-500",
@@ -56,10 +56,10 @@ const colorClasses = {
   },
   yellow: {
     emin: {
-      bg: "bg-[oklch(0.85_0.15_95)]",
-      text: "text-[oklch(0.2_0.015_65)]",
-      border: "border-[oklch(0.85_0.15_95)]",
-      checkBg: "data-[state=checked]:bg-[oklch(0.85_0.15_95)]",
+      bg: "bg-[#FFD700]",
+      text: "text-[#333333]",
+      border: "border-[#FFD700]",
+      checkBg: "data-[state=checked]:bg-[#FFD700]",
     },
     samira: {
       bg: "bg-gradient-to-br from-orange-300 via-pink-300 to-yellow-200",
