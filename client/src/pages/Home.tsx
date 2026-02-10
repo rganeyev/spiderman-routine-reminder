@@ -78,7 +78,7 @@ export default function Home() {
     titleColor: "text-primary",
     subtitleColor: "text-secondary",
   } : {
-    heroBackground: "https://private-us-east-1.manuscdn.com/sessionFile/TbidjwUVrWipI6gJiC6g1r/sandbox/e6E7lEs9NIMkLC7e47E7pC-img-1_1770748921000_na1fn_bWxwLWhlcm8tYmFja2dyb3VuZA.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvVGJpZGp3VVZyV2lwSTZnSmlDNmcxci9zYW5kYm94L2U2RTdsRXM5TklNa0xDN2U0N0U3cEMtaW1nLTFfMTc3MDc0ODkyMTAwMF9uYTFmbl9iV3h3TFdobGNtOHRZbUZqYTJkeWIzVnVaQS5wbmc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=rDyMugDAcpoPaeYF18T2X-UwQxPTSDUgQQFnk~3l95IrOntwraGVW66LzG8F4rQGlNfVX4WEraC07SpCIMi-XeKu8TvVNpvPSI~L-Wait2al0dj084YYsIoxMiJxn-OMFaDqCdUxqqnaXNRZnMhb6v55SlnKtssPMXQnWZVsyBx2U1-CrR6exd~JGnfWMNI7kWXTHz3~qo8Y89cP81X4k91LddH-cLd3~0eAVSBnhQ9eLhypfsJjA5Mje729-Y3-iakqLXNHuIcU7jDtmEaMojWxO9xm4PmbLWzd21Qve2xtxmXjp2Y6Qjn6okyn1J-U70YtYDiZYXrETSgdmAMTtw__",
+    heroBackground: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663318683677/cjpNudnLsuNKwKBI.png",
     title1: "MAGICAL",
     title2: "DAILY ADVENTURES!",
     subtitle: "Complete your magical tasks! 🦄✨",
