@@ -22,6 +22,7 @@ interface RoutineSectionProps {
   tasks: string[];
   accentColor: "red" | "blue" | "yellow";
   defaultOpen?: boolean;
+  kidId: "emin" | "samira";
 }
 
 const colorClasses = {
@@ -45,16 +46,16 @@ const colorClasses = {
   },
 };
 
-export default function RoutineSection({ title, icon, tasks, accentColor, defaultOpen = false }: RoutineSectionProps) {
+export default function RoutineSection({ title, icon, tasks, accentColor, defaultOpen = false, kidId }: RoutineSectionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const [checkedTasks, setCheckedTasks] = useState<Set<number>>(new Set());
   const colors = colorClasses[accentColor];
 
   // Load checked tasks from localStorage on mount
   useEffect(() => {
-    const loaded = loadCheckedTasks(title);
+    const loaded = loadCheckedTasks(title, kidId);
     setCheckedTasks(loaded);
-  }, [title]);
+  }, [title, kidId]);
 
   const toggleTask = (index: number) => {
     const newChecked = new Set(checkedTasks);
@@ -67,7 +68,7 @@ export default function RoutineSection({ title, icon, tasks, accentColor, defaul
     }
     setCheckedTasks(newChecked);
     // Save to localStorage
-    saveCheckedTasks(title, newChecked);
+    saveCheckedTasks(title, newChecked, kidId);
   };
 
   // Calculate completion percentage
