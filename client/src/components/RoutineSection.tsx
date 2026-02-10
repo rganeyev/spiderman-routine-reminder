@@ -4,18 +4,24 @@ Design Philosophy: Comic Book Pop Art
 - Diagonal expansion animations with elastic easing
 - Web-wrap effect on completed tasks
 - Halftone patterns and action lines
+- POW! sound effects on task completion
+- Daily-reset persistent storage
+- Completion percentage tracking
 */
 
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { playPowSound } from "@/lib/soundEffects";
+import { loadCheckedTasks, saveCheckedTasks } from "@/lib/storage";
 
 interface RoutineSectionProps {
   title: string;
   icon: string;
   tasks: string[];
   accentColor: "red" | "blue" | "yellow";
+  defaultOpen?: boolean;
 }
 
 const colorClasses = {
@@ -39,10 +45,16 @@ const colorClasses = {
   },
 };
 
-export default function RoutineSection({ title, icon, tasks, accentColor }: RoutineSectionProps) {
-  const [isOpen, setIsOpen] = useState(false);
+export default function RoutineSection({ title, icon, tasks, accentColor, defaultOpen = false }: RoutineSectionProps) {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
   const [checkedTasks, setCheckedTasks] = useState<Set<number>>(new Set());
   const colors = colorClasses[accentColor];
+
+  // Load checked tasks from localStorage on mount
+  useEffect(() => {
+    const loaded = loadCheckedTasks(title);
+    setCheckedTasks(loaded);
+  }, [title]);
 
   const toggleTask = (index: number) => {
     const newChecked = new Set(checkedTasks);
@@ -50,9 +62,18 @@ export default function RoutineSection({ title, icon, tasks, accentColor }: Rout
       newChecked.delete(index);
     } else {
       newChecked.add(index);
+      // Play POW! sound when checking a task
+      playPowSound();
     }
     setCheckedTasks(newChecked);
+    // Save to localStorage
+    saveCheckedTasks(title, newChecked);
   };
+
+  // Calculate completion percentage
+  const completionPercentage = tasks.length > 0 
+    ? Math.round((checkedTasks.size / tasks.length) * 100)
+    : 0;
 
   return (
     <Collapsible
@@ -82,10 +103,15 @@ export default function RoutineSection({ title, icon, tasks, accentColor }: Rout
             />
           </div>
           
-          {/* Title */}
-          <h2 className="relative z-10 flex-1 text-left text-3xl md:text-4xl lg:text-5xl font-bold tracking-wider">
-            {title}
-          </h2>
+          {/* Title and Percentage */}
+          <div className="relative z-10 flex-1 text-left">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-wider">
+              {title}
+            </h2>
+            <div className="text-lg md:text-xl font-bold mt-1 opacity-90">
+              {completionPercentage}% COMPLETE
+            </div>
+          </div>
           
           {/* Chevron */}
           <ChevronDown 
