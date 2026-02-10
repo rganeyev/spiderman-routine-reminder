@@ -34,10 +34,10 @@ const colorClasses = {
       checkBg: "data-[state=checked]:bg-[oklch(0.55_0.22_27)]",
     },
     samira: {
-      bg: "bg-gradient-to-br from-pink-400 to-blue-400",
-      text: "text-white",
-      border: "border-pink-400",
-      checkBg: "data-[state=checked]:bg-pink-400",
+      bg: "bg-gradient-to-br from-blue-300 via-cyan-200 to-blue-100",
+      text: "text-gray-800",
+      border: "border-blue-300",
+      checkBg: "data-[state=checked]:bg-blue-300",
     },
   },
   blue: {
@@ -62,10 +62,10 @@ const colorClasses = {
       checkBg: "data-[state=checked]:bg-[oklch(0.85_0.15_95)]",
     },
     samira: {
-      bg: "bg-gradient-to-br from-pink-400 to-purple-500",
-      text: "text-white",
-      border: "border-pink-400",
-      checkBg: "data-[state=checked]:bg-pink-400",
+      bg: "bg-gradient-to-br from-orange-300 via-pink-300 to-yellow-200",
+      text: "text-gray-800",
+      border: "border-orange-300",
+      checkBg: "data-[state=checked]:bg-orange-300",
     },
   },
 };
