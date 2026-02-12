@@ -135,15 +135,15 @@ export default function Home() {
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-background/80 via-background/90 to-background" />
 
-      {/* Sticky Kid Selector */}
-      <div className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm shadow-md py-4">
+      {/* Sticky Kid Selector - Floating Buttons */}
+      <div className="fixed top-4 left-0 right-0 z-50">
         <div className="container">
           <KidSelector selectedKid={selectedKid} onKidChange={handleKidChange} />
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 container py-8 md:py-12">
+      <div className="relative z-10 container pt-20 pb-8 md:pt-24 md:pb-12">
 
         {/* Header */}
         <header className="text-center mb-12 md:mb-16">
