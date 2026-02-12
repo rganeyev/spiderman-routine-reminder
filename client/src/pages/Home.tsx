@@ -29,28 +29,57 @@ export default function Home() {
     saveSelectedKid(kid);
   };
 
-  const morningTasks = [
-    "Brush teeth",
-    "Make up the bed",
-    "Wear clothes",
-    "Brush hair",
-    "Prepare schoolbag for the school"
+  // Tasks for Emin
+  const eminMorningTasks = [
+    "Brush your teeth",
+    "Make up your bed",
+    "Get dressed",
+    "Brush your hair",
+    "Prepare your schoolbag for school"
   ];
 
-  const afternoonTasks = [
+  const eminAfternoonTasks = [
     "Get changed after school",
-    "Clean the room",
-    "Put lunch can into dishwasher",
+    "Clean your room",
+    "Put your lunch box in the dishwasher",
     "Have lunch",
-    "Do homework",
+    "Do your homework",
     "Prepare clothes for jiu-jitsu"
   ];
 
-  const eveningTasks = [
-    "Brush teeth",
+  const eminEveningTasks = [
+    "Brush your teeth",
     "Prepare clothes for tomorrow",
-    "Clean the room"
+    "Clean your room"
   ];
+
+  // Tasks for Samira
+  const samiraMorningTasks = [
+    "Brush your teeth",
+    "Make up your bed",
+    "Get dressed",
+    "Brush your hair",
+    "Prepare your schoolbag for school"
+  ];
+
+  const samiraAfternoonTasks = [
+    "Get changed after school",
+    "Clean your room",
+    "Put your lunch box in the dishwasher",
+    "Have lunch",
+    "Do your homework"
+  ];
+
+  const samiraEveningTasks = [
+    "Brush your teeth",
+    "Prepare clothes for tomorrow",
+    "Clean your room"
+  ];
+
+  // Select tasks based on selected kid
+  const morningTasks = selectedKid === 'emin' ? eminMorningTasks : samiraMorningTasks;
+  const afternoonTasks = selectedKid === 'emin' ? eminAfternoonTasks : samiraAfternoonTasks;
+  const eveningTasks = selectedKid === 'emin' ? eminEveningTasks : samiraEveningTasks;
 
   // Determine which section should be open based on current time
   const defaultOpenSection = useMemo(() => {
@@ -106,10 +135,15 @@ export default function Home() {
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-background/80 via-background/90 to-background" />
 
+      {/* Sticky Kid Selector */}
+      <div className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm shadow-md py-4">
+        <div className="container">
+          <KidSelector selectedKid={selectedKid} onKidChange={handleKidChange} />
+        </div>
+      </div>
+
       {/* Main Content */}
       <div className="relative z-10 container py-8 md:py-12">
-        {/* Kid Selector */}
-        <KidSelector selectedKid={selectedKid} onKidChange={handleKidChange} />
 
         {/* Header */}
         <header className="text-center mb-12 md:mb-16">
